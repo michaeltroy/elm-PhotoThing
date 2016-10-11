@@ -1,0 +1,19 @@
+@import 'normalize.css';
+
+body {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 16px;
+  padding: 24px;
+  background: blue;
+  color: white;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-weight: 300;
+}
+
+#thumbnails img {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
