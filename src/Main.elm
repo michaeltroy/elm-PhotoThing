@@ -8,7 +8,7 @@ import Html.Events exposing (onClick)
 -- Initial model
 
 
-initialModel: { photos: List { url: String}, selectedUrl: String }
+initialModel : { photos: List { url: String}, selectedUrl: String }
 initialModel =
   { photos =
     [ { url = "picture1.png" }
@@ -32,7 +32,7 @@ update msg model =
 -- View
 
 
-urlPrefix: String
+urlPrefix : String
 urlPrefix =
   "assets/"
 
