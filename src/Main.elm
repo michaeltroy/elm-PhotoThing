@@ -7,6 +7,7 @@ import Html.Events exposing (onClick)
 
 -- Initial model
 
+
 initialModel: { photos: List { url: String}, selectedUrl: String }
 initialModel =
   { photos =
@@ -20,6 +21,7 @@ initialModel =
 
 -- Update
 
+
 update msg model =
   if msg.event == "selectPic" then
     { model | selectedUrl = msg.data }
@@ -28,6 +30,7 @@ update msg model =
 
 
 -- View
+
 
 urlPrefix: String
 urlPrefix =
