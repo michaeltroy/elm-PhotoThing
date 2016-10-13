@@ -63,6 +63,7 @@ urlPrefix =
   "assets/"
 
 
+viewThumbnail : String -> Photo -> Html Msg
 viewThumbnail selectedUrl thumbnail =
     img
       [ src (urlPrefix ++ thumbnail.url)
