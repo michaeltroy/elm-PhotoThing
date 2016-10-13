@@ -3,7 +3,7 @@
 A repo for playing along with the photo app example in Elm in Action.
 
 elm-in-action-book.png
-![Elm in Action](elm-in-action-book.png "Elm in Action")
+![Elm in Action]( elm-in-action-book.png )
 
 
 ## Run the scripts
