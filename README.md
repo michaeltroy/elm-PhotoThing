@@ -1,16 +1,6 @@
-# Tiny Build Elm
+# Elm in Action
 
-Tired of dealing with a front-end mess for tiny websites or prototyping? Tiny Build Elm aims to solve that problem for small Elm apps.
-
-Tiny Build Elm uses:
-
-- `NPM` for required npm packages
-- `elm-package` for elm packages
-- `elm-make` to build our Elm files
-- `Chokidar` to watch our Elm files
-- `cssnext` for transpiling the css (deprecated need to update)
-
-and __NPM to run our scripts__.
+A repo for playing along with the photo app example in Elm in Action.
 
 
 ## Run the scripts
