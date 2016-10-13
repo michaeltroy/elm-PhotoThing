@@ -88,3 +88,7 @@ var _user$project$Main$Model = F2(
 	function (a, b) {
 		return {photos: a, selectedUrl: b};
 	});
+var _user$project$Main$Msg = F2(
+	function (a, b) {
+		return {event: a, data: b};
+	});

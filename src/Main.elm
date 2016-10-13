@@ -19,6 +19,12 @@ type alias Model =
   }
 
 
+type alias Msg =
+  { event : String
+  , data : String
+  }
+
+
 -- Initial model
 
 
@@ -65,6 +71,7 @@ viewThumbnail selectedUrl thumbnail =
       ] []
 
 
+view : Model -> Html Msg
 view model =
   div [ class "content" ] [
       h1 [] [ text "Photo Thing"]
