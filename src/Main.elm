@@ -6,14 +6,23 @@ import Array exposing (Array)
 -- import PhotoThing exposing (main)
 
 
+-- Type alias's
+
+
 type alias Photo =
   { url : String }
+
+
+type alias Model =
+  { photos : List Photo
+  , selectedUrl : String
+  }
 
 
 -- Initial model
 
 
-initialModel : { photos: List Photo, selectedUrl: String }
+initialModel : Model
 initialModel =
   { photos =
     [ { url = "picture1.png" }

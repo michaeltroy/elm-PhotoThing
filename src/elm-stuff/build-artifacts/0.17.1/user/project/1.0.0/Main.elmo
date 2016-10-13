@@ -84,3 +84,7 @@ var _user$project$Main$main = {
 var _user$project$Main$Photo = function (a) {
 	return {url: a};
 };
+var _user$project$Main$Model = F2(
+	function (a, b) {
+		return {photos: a, selectedUrl: b};
+	});
