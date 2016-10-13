@@ -7,7 +7,7 @@ import Html.Events exposing (onClick)
 
 -- Initial model
 
-
+initialModel: { photos: List { url: String}, selectedUrl: String }
 initialModel =
   { photos =
     [ { url = "picture1.png" }
@@ -29,7 +29,7 @@ update msg model =
 
 -- View
 
-
+urlPrefix: String
 urlPrefix =
   "assets/"
 
@@ -38,7 +38,7 @@ viewThumbnail selectedUrl thumbnail =
     img
       [ src (urlPrefix ++ thumbnail.url)
       , classList [ ("selected", selectedUrl == thumbnail.url ) ]
-      , onClick { event = "selectPic", data = thumbnail.url}
+      , onClick { event = "selectPic", data = thumbnail.url }
       ] []
 
 
