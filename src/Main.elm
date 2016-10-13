@@ -3,7 +3,6 @@ import Html.Attributes exposing (..)
 import Html.App exposing (..)
 import Html.Events exposing (onClick)
 import Array exposing (Array)
--- import PhotoThing exposing (main)
 
 
 -- Type alias's
@@ -16,7 +15,14 @@ type alias Photo =
 type alias Model =
   { photos : List Photo
   , selectedUrl : String
+  , chosenSize : ThumbnailSize
   }
+
+
+type ThumbnailSize
+  = Small
+  | Medium
+  | Large
 
 
 type alias Msg =
@@ -36,6 +42,7 @@ initialModel =
     , { url = "picture3.png" }
     ]
   , selectedUrl = "picture2.png"
+  , chosenSize = Medium
   }
 
 
@@ -49,12 +56,13 @@ photoArray =
 
 
 update msg model =
-  if msg.event == "selectPic" then
-    { model | selectedUrl = msg.data }
-  else if msg.event == "surpriseMe" then
-    { model | selectedUrl = "picture3.png" }
-  else
-    model
+  case msg.event of
+    "selectPic" ->
+      { model | selectedUrl = msg.data }
+    "surpriseMe" ->
+      { model | selectedUrl = "picture3.png" }
+    _ ->
+      model
 
 
 -- View
@@ -72,6 +80,25 @@ viewThumbnail selectedUrl thumbnail =
       , classList [ ("selected", selectedUrl == thumbnail.url ) ]
       , onClick { event = "selectPic", data = thumbnail.url }
       ] []
+
+
+viewSizeChooser : ThumbnailSize -> Html Msg
+viewSizeChooser size =
+  label []
+    [ input [ type' "radio", name "size" ] []
+    , text (sizeToString size)
+    ]
+
+
+sizeToString : ThumbnailSize -> String
+sizeToString size =
+  case size of
+    Small ->
+      "small"
+    Medium ->
+      "medium"
+    Large ->
+      "large"
 
 
 view : Model -> Html Msg
