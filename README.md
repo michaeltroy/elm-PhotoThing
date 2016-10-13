@@ -1,18 +1,21 @@
 # Tiny Build Elm
 
-Tired of dealing with a front-end mess for tiny websites or prototyping? Tiny Build Elm aims to solve that problem.
+Tired of dealing with a front-end mess for tiny websites or prototyping? Tiny Build Elm aims to solve that problem for small Elm apps.
 
 Say hello to Tiny Build Elm:
 
 - NPM for required npm packages
+- `elm-package` for elm packages (der!)
 - NPM to run our scripts
-- Elm make to build our Elm files
+- `elm-make` to build our Elm files
 - Chokidar to watch our Elm files
-- cssnext for transpiling the css (deprecated I think)
+- cssnext for transpiling the css (deprecated need to update)
 
 ## Run the scripts
 
-Boot: Installs packages and initial build ```npm run boot```
+Boot: ```npm run boot```
+
+Installs packages and initial build.
 
 Boot and watch: Installs the packages, builds and then watches for changes ```npm run boot:watch```
 
