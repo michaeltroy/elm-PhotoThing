@@ -2,7 +2,7 @@
 
 A repo for playing along with the photo app example in Elm in Action.
 
-![Elm in Action](https://dl.dropboxusercontent.com/u/5813634/elm-in-action.png)
+![Elm in Action](https://dl.dropboxusercontent.com/u/5813634/elm-in-action-small.png)
 
 
 ## Run the scripts
