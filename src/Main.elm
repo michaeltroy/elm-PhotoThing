@@ -51,6 +51,8 @@ photoArray =
 update msg model =
   if msg.event == "selectPic" then
     { model | selectedUrl = msg.data }
+  else if msg.event == "surpriseMe" then
+    { model | selectedUrl = "picture3.png" }
   else
     model
 
@@ -76,6 +78,9 @@ view : Model -> Html Msg
 view model =
   div [ class "content" ] [
       h1 [] [ text "Photo Thing"]
+      , button
+        [ onClick { event = "surpriseMe", data = "" } ]
+        [ text "Surprise me!" ]
       , div [ id "thumbnails" ]
         (List.map (viewThumbnail model.selectedUrl)
           model.photos

@@ -40,6 +40,17 @@ var _user$project$Main$view = function (model) {
 						_elm_lang$html$Html$text('Photo Thing')
 					])),
 				A2(
+				_elm_lang$html$Html$button,
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html_Events$onClick(
+						{event: 'surpriseMe', data: ''})
+					]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						_elm_lang$html$Html$text('Surprise me!')
+					])),
+				A2(
 				_elm_lang$html$Html$div,
 				_elm_lang$core$Native_List.fromArray(
 					[
@@ -65,7 +76,9 @@ var _user$project$Main$update = F2(
 	function (msg, model) {
 		return _elm_lang$core$Native_Utils.eq(msg.event, 'selectPic') ? _elm_lang$core$Native_Utils.update(
 			model,
-			{selectedUrl: msg.data}) : model;
+			{selectedUrl: msg.data}) : (_elm_lang$core$Native_Utils.eq(msg.event, 'surpriseMe') ? _elm_lang$core$Native_Utils.update(
+			model,
+			{selectedUrl: 'picture3.png'}) : model);
 	});
 var _user$project$Main$initialModel = {
 	photos: _elm_lang$core$Native_List.fromArray(
