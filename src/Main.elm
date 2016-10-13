@@ -2,13 +2,18 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.App exposing (..)
 import Html.Events exposing (onClick)
+import Array exposing (Array)
 -- import PhotoThing exposing (main)
+
+
+type alias Photo =
+  { url : String }
 
 
 -- Initial model
 
 
-initialModel : { photos: List { url: String}, selectedUrl: String }
+initialModel : { photos: List Photo, selectedUrl: String }
 initialModel =
   { photos =
     [ { url = "picture1.png" }
@@ -19,7 +24,7 @@ initialModel =
   }
 
 
-photoArray : Array { url : String }
+photoArray : Array Photo
 photoArray =
   Array.fromList
     initialModel.photos
