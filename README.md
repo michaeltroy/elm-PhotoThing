@@ -2,52 +2,43 @@
 
 Tired of dealing with a front-end mess for tiny websites or prototyping? Tiny Build Elm aims to solve that problem for small Elm apps.
 
-Say hello to Tiny Build Elm:
+Tiny Build Elm uses:
 
-- NPM for required npm packages
-- `elm-package` for elm packages (der!)
-- NPM to run our scripts
+- `NPM` for required npm packages
+- `elm-package` for elm packages
 - `elm-make` to build our Elm files
-- Chokidar to watch our Elm files
-- cssnext for transpiling the css (deprecated need to update)
+- `Chokidar` to watch our Elm files
+- `cssnext` for transpiling the css (deprecated need to update)
+
+and __NPM to run our scripts__.
+
 
 ## Run the scripts
 
-Boot: ```npm run boot```
+```npm run boot``` Installs packages and initial build.
 
-Installs packages and initial build.
+```npm run boot:watch``` Installs the packages, builds and then watches for changes
 
-Boot and watch: Installs the packages, builds and then watches for changes ```npm run boot:watch```
+```npm run build``` Builds the project
 
-Build: Builds the project ```npm run build```
+```npm run watch``` Watches the project and rebuilds
 
-Watch: Watches the project and rebuilds ```npm run watch```
-
-Start: Starts the server and runs watch, in seperate terminal tabs  ```npm run start```
+```npm run start``` Starts the server and runs watch, in seperate terminal tabs
 
 ## Clean the slate
 
-Wipe: Deletes the build and node_modules dirs ```npm run wipe```
+```npm run wipe``` Deletes the build and node_modules dirs
 
-Clean: Deletes just the build dir ```npm run clean```
+```npm run clean``` Deletes just the build directory
 
 ## Server
 
-Superstatic is a cool simple webserver that supports HTML pushState.
+Tiny Build Elm uses Browser-sync for serving our app.
 
-Start the webserver.
+Either use:
 
-```superstatic -p 4000 public```
+`npm run start`
 
-For single page apps add a ```superstatic.json``` file to the root of your project.
+Or alternatively:
 
-```
-{
-  "rewrites": [
-    {
-      "source": "**",
-      "destination": "/index.html"
-    }
-  ]
-}
-```
+`browser-sync start --files '../public/build/*.css, ../public/build/*.js' --server '../public/`
