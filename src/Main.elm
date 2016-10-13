@@ -19,6 +19,12 @@ initialModel =
   }
 
 
+photoArray : Array { url : String }
+photoArray =
+  Array.fromList
+    initialModel.photos
+
+
 -- Update
 
 
