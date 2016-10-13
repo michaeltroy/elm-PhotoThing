@@ -1,4 +1,6 @@
-import Html exposing (div, h1, img, text)
+module PhotoThing exposing (..)
+
+import Html exposing (..)
 import Html.Attributes exposing (..)
 
 
@@ -15,8 +17,14 @@ view model =
       ]
 
 
--- Main
+-- Initial model
+
+initialModel =
+    [ { url = "assets/nature.png" }
+    , { url = "assets/nature.png" }
+    , { url = "assets/nature.png" }
+    ]
+
 
 main =
-  view "no model yet"
-
+  view initialModel
