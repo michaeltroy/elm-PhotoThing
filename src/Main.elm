@@ -25,10 +25,10 @@ type ThumbnailSize
   | Large
 
 
-type alias Msg =
-  { event : String
-  , data : String
-  }
+type Msg
+  = SelectByUrl String
+  | SurpriseMe
+  | SetSize ThumbnailSize
 
 
 -- Initial model
@@ -63,7 +63,7 @@ getPhotoUrl index =
 
 -- Update
 
-
+update : Msg -> Model -> Model
 update msg model =
   case msg.event of
     "selectPic" ->
@@ -87,14 +87,15 @@ viewThumbnail selectedUrl thumbnail =
     img
       [ src (urlPrefix ++ thumbnail.url)
       , classList [ ("selected", selectedUrl == thumbnail.url ) ]
-      , onClick { event = "selectPic", data = thumbnail.url }
+      , onClick { event = "selectPic", data = thumbnail.url, sizeData = Small }
       ] []
 
 
 viewSizeChooser : ThumbnailSize -> Html Msg
 viewSizeChooser size =
   label []
-    [ input [ type' "radio", name "size" ] []
+    [ input [ type' "radio", name "size"
+    , onClick { event = "setSize", data = size } ] []
     , text (sizeToString size)
     ]
 
