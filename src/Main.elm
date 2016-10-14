@@ -68,11 +68,16 @@ update msg model =
   case msg of
     SelectByUrl url ->
       { model | selectedUrl = url }
-    surpriseMe ->
+    SurpriseMe ->
       { model | selectedUrl = "picture3.png" }
+    SetSize size ->
+      { model | chosenSize size }
+    _ ->
+      model
 
 
--- View
+
+-- view
 
 
 urlPrefix : String
