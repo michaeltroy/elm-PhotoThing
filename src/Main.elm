@@ -65,13 +65,11 @@ getPhotoUrl index =
 
 update : Msg -> Model -> Model
 update msg model =
-  case msg.event of
-    "selectPic" ->
-      { model | selectedUrl = msg.data }
-    "surpriseMe" ->
+  case msg of
+    SelectByUrl url ->
+      { model | selectedUrl = url }
+    surpriseMe ->
       { model | selectedUrl = "picture3.png" }
-    _ ->
-      model
 
 
 -- View
@@ -87,7 +85,7 @@ viewThumbnail selectedUrl thumbnail =
     img
       [ src (urlPrefix ++ thumbnail.url)
       , classList [ ("selected", selectedUrl == thumbnail.url ) ]
-      , onClick { event = "selectPic", data = thumbnail.url, sizeData = Small }
+      , onClick (SelectByUrl thumbnail.url)
       ] []
 
 
@@ -95,7 +93,7 @@ viewSizeChooser : ThumbnailSize -> Html Msg
 viewSizeChooser size =
   label []
     [ input [ type' "radio", name "size"
-    , onClick { event = "setSize", data = size } ] []
+    , onClick (SetSize size) ] []
     , text (sizeToString size)
     ]
 
@@ -116,7 +114,7 @@ view model =
   div [ class "content" ] [
       h1 [] [ text "Photo Thing"]
       , button
-        [ onClick { event = "surpriseMe", data = "" } ]
+        [ onClick SurpriseMe ]
         [ text "Surprise me!" ]
       , h3 [] [ text "Thumbnail Size:" ]
       , div [ id "chosen-size" ]
