@@ -3,6 +3,7 @@ import Html.Attributes exposing (..)
 import Html.App exposing (..)
 import Html.Events exposing (onClick)
 import Array exposing (Array)
+import Random
 
 
 -- Type alias's
@@ -61,6 +62,11 @@ getPhotoUrl index =
       ""
 
 
+randomPhotoPicker : Random.Generator Int
+randomPhotoPicker =
+  Random.int 0 (Array.length photoArray - 1 )
+
+
 -- Update
 
 update : Msg -> Model -> Model
@@ -71,9 +77,7 @@ update msg model =
     SurpriseMe ->
       { model | selectedUrl = "picture3.png" }
     SetSize size ->
-      { model | chosenSize size }
-    _ ->
-      model
+      { model | chosenSize = size }
 
 
 
