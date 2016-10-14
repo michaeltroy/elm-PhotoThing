@@ -42,7 +42,7 @@ initialModel =
     , { url = "picture3.png" }
     ]
   , selectedUrl = "picture2.png"
-  , chosenSize = Medium
+  , chosenSize = Small
   }
 
 
@@ -50,6 +50,15 @@ photoArray : Array Photo
 photoArray =
   Array.fromList
     initialModel.photos
+
+
+getPhotoUrl : Int -> String
+getPhotoUrl index =
+  case Array.get index photoArray of
+    Just photo ->
+      photo.url
+    Nothing ->
+      ""
 
 
 -- Update
@@ -108,12 +117,15 @@ view model =
       , button
         [ onClick { event = "surpriseMe", data = "" } ]
         [ text "Surprise me!" ]
+      , h3 [] [ text "Thumbnail Size:" ]
+      , div [ id "chosen-size" ]
+        (List.map viewSizeChooser [ Small, Medium, Large ])
       , div [ id "thumbnails" ]
         (List.map (viewThumbnail model.selectedUrl)
           model.photos
         )
       , img
-        [ class "large"
+        [ class (sizeToString model.chosenSize)
         , src (urlPrefix ++ model.selectedUrl)
         ] []
       ]
