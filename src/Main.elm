@@ -6,7 +6,7 @@ import Array exposing (Array)
 import Random
 
 
--- Type alias's
+-- Type alias'
 
 
 type alias Photo =
@@ -69,6 +69,7 @@ randomPhotoPicker =
 
 -- Update
 
+
 update : Msg -> Model -> Model
 update msg model =
   case msg of
@@ -78,7 +79,6 @@ update msg model =
       { model | selectedUrl = "picture3.png" }
     SetSize size ->
       { model | chosenSize = size }
-
 
 
 -- view
