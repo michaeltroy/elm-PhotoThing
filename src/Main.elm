@@ -147,6 +147,7 @@ update msg model =
 -- Main outputs our app
 
 
+main : program Never
 main =
   Html.App.program
     { init = (initialModel, Cmd.none )
